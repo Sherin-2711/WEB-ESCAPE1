@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 const api = axios.create({
     baseURL: `${apiUrl}/api/v1`,
@@ -21,7 +21,7 @@ api.interceptors.request.use(
     }
 );
 
-// Response interceptor
+// Response interceptor 
 api.interceptors.response.use(
     (response) => {
         return response;
