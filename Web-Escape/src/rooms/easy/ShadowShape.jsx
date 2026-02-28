@@ -116,7 +116,7 @@ const ShadowShapeLevel = () => {
       {/* Box with Image, Input, Submit */}
       <div className="relative z-10 w-full max-w-md bg-[#1a0e2a]/60 backdrop-blur-xl border-2 border-[#c084fc]/40 rounded-2xl p-6 flex flex-col items-center gap-6">
         <motion.img
-          src={`http://localhost:3000/${puzzle.image}`}
+          src={puzzle.image}
           alt="shadow"
           className="w-48 h-48 object-contain rounded-xl border-2 border-[#ec4899]/50 shadow-md"
           initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.3 }}

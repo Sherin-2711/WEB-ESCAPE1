@@ -70,7 +70,7 @@ export default function GuessLiarGame() {
 
       <div className="relative w-full max-w-5xl aspect-video border-2 border-white rounded-lg overflow-hidden">
         <img
-          src={`http://localhost:3000/uploads/${levelData.data.background}`}
+          src={levelData.data.background}
           alt="scene"
           className="w-full h-full object-cover"
         />
@@ -86,7 +86,7 @@ export default function GuessLiarGame() {
             }}
           >
             <img
-              src={`http://localhost:3000/uploads/${s.image}`}
+              src={s.image}
               alt={s.character}
               className="w-28 h-28 rounded-full border-4 border-white shadow-lg mb-2"
             />
