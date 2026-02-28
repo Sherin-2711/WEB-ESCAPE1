@@ -56,10 +56,8 @@ export default function GuessLiarGame() {
     }
   };
 
-  // ✅ Success screen
   if (showCompleteScreen) return <LevelCompleteScreen />;
 
-  // ✅ Defensive load check
   if (!levelData || !levelData.data?.statements) {
     return <div className="text-white text-center mt-10">Loading or invalid data...</div>;
   }
@@ -94,10 +92,10 @@ export default function GuessLiarGame() {
               onClick={() => handleGuess(s.character)}
               disabled={selected !== null}
               className={`text-base max-w-[60vw] px-4 py-3 rounded-xl font-semibold shadow-md transition-all duration-300 ${selected === s.character
-                  ? "bg-green-600 text-white"
-                  : selected
-                    ? "bg-gray-600 text-white opacity-60"
-                    : "bg-yellow-300 text-black hover:bg-yellow-400"
+                ? "bg-green-600 text-white"
+                : selected
+                  ? "bg-gray-600 text-white opacity-60"
+                  : "bg-yellow-300 text-black hover:bg-yellow-400"
                 }`}
             >
               {s.character}: “{s.text}”
