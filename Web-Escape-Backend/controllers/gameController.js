@@ -7,7 +7,8 @@ export const getOrCreateProgress = async (req, res) => {
     let progress = await GameProgress.findOne({ user: userId });
 
     if (!progress) {
-      progress = await GameProgress.create({ user: userId ,
+      progress = await GameProgress.create({
+        user: userId,
         currentLevel: 0,
         levelStatus: Array(10).fill(false),
         score: 0,
@@ -74,7 +75,7 @@ export const updateTime = async (req, res) => {
     const progress = await GameProgress.findOneAndUpdate(
       { user: userId },
       { $set: { timer } },
-      { new: true , upsert:true}
+      { new: true, upsert: true }
     );
 
 
@@ -95,7 +96,6 @@ export const retryLevel = async (req, res) => {
       return res.status(404).json({ error: 'Progress not found' });
     }
 
-    // Find the levelAttempt object
     const levelData = progress.levelAttempts.find(
       (lvl) => lvl.levelNumber === level
     );
@@ -108,7 +108,6 @@ export const retryLevel = async (req, res) => {
       return res.status(400).json({ error: 'Not enough score to retry' });
     }
 
-    // Deduct score and reset attempts
     progress.score -= 5;
     levelData.attemptsLeft = 3;
     levelData.retriesUsed += 1;
@@ -170,8 +169,8 @@ export const getTimer = async (req, res) => {
     let progress = await GameProgress.findOne({ user: userId });
 
     if (!progress) {
-       progress = await GameProgress.create({ user: userId, timer: 0 });
-     
+      progress = await GameProgress.create({ user: userId, timer: 0 });
+
     }
 
     res.status(200).json({ timer: progress.timer });

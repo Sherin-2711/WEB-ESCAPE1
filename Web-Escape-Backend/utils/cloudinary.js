@@ -9,11 +9,10 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Multer storage adapter — uploads straight to Cloudinary
 const cloudinaryStorage = new CloudinaryStorage({
     cloudinary,
     params: {
-        folder: 'web-escape/levels',   // all game images go here
+        folder: 'web-escape/levels',
         allowed_formats: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
         transformation: [{ quality: 'auto', fetch_format: 'auto' }],
     },
