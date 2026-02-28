@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 
-// Sub-schema for each level's attempts
 const levelAttemptSchema = new mongoose.Schema({
   levelNumber: { type: Number, required: true },
   attemptsLeft: { type: Number, default: 3 },
@@ -26,12 +25,11 @@ const gameProgressSchema = new mongoose.Schema({
 
   assignedLevels: {
     type: Map,
-    of: String, // Stores variant IDs assigned to this user
+    of: String,
     default: {}
   },
 
-  // new addition
-    levelAttempts: {
+  levelAttempts: {
     type: [levelAttemptSchema],
     default: () =>
       Array.from({ length: 10 }, (value, index) => ({
@@ -42,7 +40,8 @@ const gameProgressSchema = new mongoose.Schema({
   },
 
 
-}, { timestamps: true
+}, {
+  timestamps: true
 
 });
 
