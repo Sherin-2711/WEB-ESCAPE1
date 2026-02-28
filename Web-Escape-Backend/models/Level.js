@@ -9,6 +9,10 @@ const levelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  imageUrl: {
+    type: String,
+    default: null,
+  },
   data: {
     type: mongoose.Schema.Types.Mixed,
     default: {},
@@ -19,7 +23,7 @@ const levelSchema = new mongoose.Schema({
   },
   answerType: {
     type: String,
-    enum: ['string', 'coordinates'],
+    enum: ['string', 'coordinates', 'wordle', 'score'],
     required: true,
   }
 });

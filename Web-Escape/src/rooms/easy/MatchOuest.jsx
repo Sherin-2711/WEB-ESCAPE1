@@ -92,7 +92,7 @@ export default function MatchQuestGame() {
             >
               {(isFlipped || isMatched) ? (
                 <img
-                  src={`http://localhost:3000/uploads/${card.image}`}
+                  src={card.image}
                   alt="card"
                   className="w-full h-full object-cover rounded-md"
                 />

@@ -105,7 +105,7 @@ export default function FindObjectGame() {
 
       <div className="relative">
         <img
-          src={`http://localhost:3000/${levelData.data}`}
+          src={levelData.data}
           alt={levelData.question}
           onClick={handleClick}
           className={`max-w-full border-4 ${
